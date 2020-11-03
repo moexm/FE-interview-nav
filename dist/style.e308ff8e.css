@@ -23,11 +23,31 @@ body {
     margin:20px;
     
 }
+
+@media (min-width :500px ){
+    .globalHeader{
+        margin-top: 20%;
+        margin-bottom: 10%;   
+    }
+    
+}
 .globalHeader > .searchForm{
     
     display: flex;
     justify-content: space-between;
+     
 }
+
+/*  pc 设置固定宽度 */
+@media ( min-width : 500px ){
+    .searchForm{
+        max-width: 400px;
+        /* 只有有固定宽度，最大宽度的时候才用margin居中 */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 
 .globalHeader > .searchForm > input{
     width: 100%;
@@ -55,14 +75,33 @@ body {
 
 .globalMain{
     max-width: 900px;
+    
+    margin-right:auto;
+    margin-left: auto;
 }
+/* 设置平局布局，不用space-between */
+
+
 
 .globalMain > .siteList {
     margin:20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     
+    
+}
+@media (max-width:500px){
+    .globalMain > .siteList {
+        justify-content: space-between;
+    }
+}
+@media (min-width:500px ){
+    .globalMain > .siteList {
+        
+        margin-right:-25px;
+        margin-left:0;
+    }
+
 }
 
 .siteList > li {
@@ -73,6 +112,7 @@ body {
 .siteList .site {
     width:160px;
     padding:20px 0;
+    margin-right: 25px;
     border:1px solid #DDD;
     background-color: white;
     border-radius:4px;
@@ -82,6 +122,11 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+}
+@media (max-width:500px){
+    .siteList .site{
+        margin-right: 0;
+    }
 }
 
 /* 文本居中对齐 */
