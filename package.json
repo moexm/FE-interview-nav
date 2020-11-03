@@ -1,5 +1,14 @@
 {
+  "scripts": {
+    "build": "rm -rf dist && parcel build src/index.html --no-minify --public-url https://github.com/moexm/FE-interview-nav/dist/"
+  },
   "devDependencies": {
     "cssnano": "^4.1.10"
-  }
+  },
+  "name": "FE-Nav",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:moexm/FE-interview-nav.git",
+  "author": "moexm <376825198@qq.com>",
+  "license": "MIT"
 }
