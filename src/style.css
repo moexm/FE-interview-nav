@@ -149,11 +149,16 @@ body {
     margin-top: 10px;
     font-size: 14px;
 }
-.site .close{
+.siteList .site .close{
     position: absolute;
     top:-8px;
     right:-4px;
     color: red;
+    display: none;
+}
+
+.siteList .site:hover >.close{
+    display: block;
 }
 
 

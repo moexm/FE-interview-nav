@@ -173,7 +173,18 @@ window.onbeforeunload = function () {
   console.log(hashmap);
   var string = JSON.stringify(hashmap);
   localStorage.setItem('x', string);
-};
+}; // 键盘事件， 快捷打开
+
+
+$(document).on('keypress', function (e) {
+  var key = e.key;
+
+  for (var i = 0; i < hashmap.length; i++) {
+    if (hashmap[i].logo.toLowerCase() === key) {
+      window.open(hashmap[i].link);
+    }
+  }
+});
 },{}],"../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

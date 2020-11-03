@@ -70,3 +70,15 @@ window.onbeforeunload = () => {
 
 }
 
+// 键盘事件， 快捷打开
+$(document).on('keypress', (e) => {
+    const { key } = e;
+    for (let i = 0; i < hashmap.length; i++) {
+
+        if (hashmap[i].logo.toLowerCase() === key) {
+
+            window.open(hashmap[i].link);
+        }
+    }
+})
+
