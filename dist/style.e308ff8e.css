@@ -67,6 +67,7 @@ body {
 
 .siteList > li {
     margin-bottom: 10px;
+    
 }
 /* 平均布局  高度由最内层内容撑满*/
 .siteList .site {
@@ -80,9 +81,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
-    display:relative;
+    position: relative;
 }
+
 /* 文本居中对齐 */
 .siteList .site  .logo{
   
@@ -95,11 +96,19 @@ body {
     align-items: center;
     justify-content: center;
 
+   
+
 }
 
 .siteList .site  .link {   
     margin-top: 10px;
     font-size: 14px;
+}
+.site .close{
+    position: absolute;
+    top:-8px;
+    right:-4px;
+    color: red;
 }
 
 

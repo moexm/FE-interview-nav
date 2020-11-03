@@ -121,7 +121,6 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 var $siteList = $('.siteList');
 var $lastLi = $siteList.find('li.last');
 var xObject = JSON.parse(localStorage.getItem('x'));
-console.log(xObject);
 var hashmap = xObject || [{
   logo: 'a',
   logoType: 'url',
@@ -138,9 +137,19 @@ var removeX = function removeX(url) {
 
 var render = function render() {
   $siteList.find('li:not(.last)').remove();
-  hashmap.forEach(function (node) {
-    var $li = $("<li class=\"site\">\n                        <a href=\"".concat(node.link, "\">\n                            <div class=\"logo\">").concat(node.logo, "</div>\n                            <div class=\"link\"> ").concat(removeX(node.link), "</div>\n                        </a>\n                    </li>"));
-    $li.insertBefore($lastLi);
+  hashmap.forEach(function (node, index) {
+    var $li = $(" <li class=\"site\">\n                            <div class=\"logo\">".concat(node.logo, "</div>\n                            <div class=\"link\"> ").concat(removeX(node.link), "</div>\n                            <div class=\"close\"> \n                                <svg class=\"icon\" >\n                                <use xlink:href=\"#icon-close\"></use>\n                                </svg>\n                            </div>\n                    </li>"));
+    $li.insertBefore($lastLi); // 代替<a>标签, 有问题
+
+    $li.on('click', function () {
+      window.open(node.link);
+    });
+    $li.on('click', '.close', function (e) {
+      console.log(index + 'stop');
+      e.stopPropagation();
+      hashmap.splice(index, 1);
+      render();
+    });
   });
 };
 
@@ -193,7 +202,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55065" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61614" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

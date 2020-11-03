@@ -1,7 +1,6 @@
 const $siteList = $('.siteList')
 const $lastLi = $siteList.find('li.last');
 const xObject = JSON.parse(localStorage.getItem('x'));
-console.log(xObject)
 const hashmap = xObject || [
     { logo: 'a', logoType: 'url', link: 'https://www.acfun.cn' },
     { logo: 'b', logoType: 'img', link: 'http://bilibili.com' },
@@ -19,14 +18,29 @@ const removeX = (url) => {
 const render = () => {
 
     $siteList.find('li:not(.last)').remove();
-    hashmap.forEach(node => {
-        const $li = $(`<li class="site">
-                        <a href="${node.link}">
+    hashmap.forEach((node, index) => {
+        const $li = $(` <li class="site">
                             <div class="logo">${node.logo}</div>
                             <div class="link"> ${removeX(node.link)}</div>
-                        </a>
+                            <div class="close"> 
+                                <svg class="icon" >
+                                <use xlink:href="#icon-close"></use>
+                                </svg>
+                            </div>
                     </li>`)
         $li.insertBefore($lastLi)
+
+        // 代替<a>标签, 有问题
+        $li.on('click', () => {
+            window.open(node.link);
+        })
+        $li.on('click', '.close', (e) => {
+            console.log(index + 'stop')
+            e.stopPropagation();
+            hashmap.splice(index, 1);
+            render();
+        })
+
     })
 }
 
