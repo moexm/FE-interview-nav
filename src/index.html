@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fe-Nav</title>
+
+    <link rel="stylesheet" href="style.css">
+    <style type="text/css">
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="globalHeader">
+        <!-- https:www.baidu.com/s?wd=inputContent -->
+        <form action="https://www.baidu.com/s" method="GET" class="searchForm">
+
+            <input type="text" name="wd">
+            <button type="submit">搜索</button>
+        </form>
+    </header>
+    <main class="globalMain">
+        <ul class="siteList">
+            <!-- <li class="site">
+                <a href="http://www.acfun.cn">
+                    <div class="logo">a</div>
+                    <div class="link">acfun.com</div>
+                </a>
+            </li>
+            <li class="site">
+                <a href="http://www.bilibili.com">
+                    <div class="logo">
+                        <img src="./images/bilibili.png" alt="B">
+                    </div>
+                    <div class="link">bilibili.com</div>
+                </a>
+            </li> -->
+            <li class="last site" class="site">
+                <div class="logo">
+                    <div class="addButton">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-Fond-add"></use>
+                        </svg>
+                        <div class="href"></div>
+                    </div>
+                </div>
+                <div class="link">新增网站</div>
+            </li>
+        </ul>
+    </main>
+</body>
+
+<script src="//at.alicdn.com/t/font_1642484_3aq7ui9xhrx.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="./main.js"></script>
+
+</html>
