@@ -121,18 +121,25 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 var $siteList = $('.siteList');
 var $lastLi = $siteList.find('li.last');
 var xObject = JSON.parse(localStorage.getItem('x'));
+console.log(xObject);
 var hashmap = xObject || [{
   logo: 'a',
+  logoType: 'url',
   link: 'https://www.acfun.cn'
 }, {
-  logo: './images/bilibili.png',
+  logo: 'b',
+  logoType: 'img',
   link: 'http://bilibili.com'
-}];
+}]; //简化URL
+
+var removeX = function removeX(url) {
+  return url.replace('https://', '').replace('http://', '').replace('www.', '').replace(/\/.*/, '');
+};
 
 var render = function render() {
   $siteList.find('li:not(.last)').remove();
   hashmap.forEach(function (node) {
-    var $li = $("<li class=\"site\">\n                        <a href=\"".concat(node.link, "\">\n                            <div class=\"logo\">").concat(node.logo[0], "</div>\n                            <div class=\"link\">").concat(node.link, "</div>\n                        </a>\n                    </li>"));
+    var $li = $("<li class=\"site\">\n                        <a href=\"".concat(node.link, "\">\n                            <div class=\"logo\">").concat(node.logo, "</div>\n                            <div class=\"link\"> ").concat(removeX(node.link), "</div>\n                        </a>\n                    </li>"));
     $li.insertBefore($lastLi);
   });
 };
@@ -145,9 +152,9 @@ $('.addButton').on('click', function () {
     url = 'https://' + url;
   }
 
-  console.log(url);
   hashmap.push({
-    logo: url.slice(9)[0],
+    logo: removeX(url)[0],
+    logoType: "url",
     link: url
   });
   render();
@@ -186,7 +193,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52396" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55065" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

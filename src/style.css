@@ -81,7 +81,7 @@ body {
     align-items: center;
     justify-content: center;
     
-
+    display:relative;
 }
 /* 文本居中对齐 */
 .siteList .site  .logo{
@@ -101,4 +101,6 @@ body {
     margin-top: 10px;
     font-size: 14px;
 }
+
+
 
