@@ -1,4 +1,6 @@
-# URL:https://moexm.github.io/FE-interview-nav/
+# URL:https://moexm.github.io/FE-interview-nav/src/index.html
+
+
 
 # FE-interview-nav
  1. 初步版本 ：可添加可删除URL
@@ -15,3 +17,6 @@ parcel src/index.html
 ```
 yarn build
 ```
+
+
+bug: 打包后的dist 无法link 
